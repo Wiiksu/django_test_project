@@ -2,12 +2,45 @@
 <html>
   <head>
     <title>Main Page</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #f1f5f9;
+      }
+      .list-item {
+        background-color: #cbd5e1;
+        margin: 5px;
+        padding: 5px;
+        width: 100px;
+      }
+
+      .list-wrap {
+        background-color: #94a3b8;
+        padding: 20px;
+        width: 200px;
+        max-width: 300px;
+        border-radius: 5px;
+      }
+      a:link,
+      visited,
+      active {
+        text-decoration: none;
+        color: black;
+      }
+    </style>
   </head>
   <body>
-    <h2>Main Page</h2>
-    <ul>
-      <li><a href="{% url 'myapp:create_user' %}">Create User</a></li>
-      <li><a href="{% url 'myapp:user_list' %}">User List</a></li>
-    </ul>
+    <h1>Main Page</h1>
+    <div class="list-wrap">
+      <div class="list-item">
+        <a href="{% url 'myapp:create_user' %}">Create User</a>
+      </div>
+      <div class="list-item">
+        <a href="{% url 'myapp:user_list' %}">User List</a>
+      </div>
+    </div>
   </body>
 </html>
