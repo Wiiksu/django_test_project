@@ -17,9 +17,10 @@
         width: 200px;
       }
       a:link,
-      visited {
+      visited,
+      active {
         text-decoration: none;
-        color: pink;
+        color: black;
       }
       .create-button {
         background-color: #64748b;
@@ -55,9 +56,9 @@
       <button class="create-button" type="submit">Create User</button>
       <br />
       <br />
-      <a style="margin-top: 10px" href="{% url 'myapp:user_list' %}"
-        >Check existing users</a
-      >
+      <a href="{% url 'myapp:user_list' %}">Check existing users</a>
+      <br />
+      <a href="{% url 'myapp:main_page' %}">Back to main</a>
     </form>
   </body>
 </html>
