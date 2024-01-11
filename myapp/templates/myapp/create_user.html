@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create User</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #f1f5f9;
+      }
+      form {
+        background-color: #cbd5e1;
+        padding: 20px 20px 10px 20px;
+        border-radius: 10px;
+        width: 200px;
+      }
+      a:link,
+      visited {
+        text-decoration: none;
+        color: pink;
+      }
+      .create-button {
+        background-color: #64748b;
+        color: #f1f5f9;
+        font-weight: bold;
+        padding: 10px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 15px;
+        cursor: pointer;
+        border-radius: 4px;
+        border: none;
+        width: fit-content;
+      }
+
+      .create-button:hover {
+        background-color: #94a3b8;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>Create a New User</h2>
+    </div>
+    <form class="form" method="post" action="{% url 'myapp:create_user' %}">
+      {% csrf_token %} {% for field in form %}
+      <div>
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+      </div>
+      <div style="margin-bottom: 7px">{{ field }}</div>
+      {% endfor %}
+      <button class="create-button" type="submit">Create User</button>
+      <br />
+      <br />
+      <a style="margin-top: 10px" href="{% url 'myapp:user_list' %}"
+        >Check existing users</a
+      >
+    </form>
+  </body>
+</html>
